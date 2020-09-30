@@ -1,0 +1,32 @@
+{% extends 'admins/base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<div class="row">
+    <!-- left column -->
+    <div class="col-md-6">
+      <!-- general form elements -->
+      <div class="card card-secondary">
+        <div class="card-header">
+          <h3 class="card-title">Application Fee</h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+          <div class="card-body">
+            <div class="form-group">
+                {{ form | crispy }}
+            </div>
+          <div class="card-footer">
+            <button type="submit" class="btn btn-secondary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-6">
+    </div>
+  </div>
+
+{% endblock %}

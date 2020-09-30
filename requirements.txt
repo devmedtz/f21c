@@ -1,0 +1,10 @@
+Django==3.0.7
+django-crispy-forms==1.9.1
+django-decouple==2.1
+Pillow==7.1.2
+six==1.15.0
+Unipath==1.1
+django-phonenumber-field==4.0.0
+phonenumbers==8.12.7
+xhtml2pdf==0.2.4
+psycopg2==2.8.6

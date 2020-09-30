@@ -1,0 +1,58 @@
+{% extends 'admins/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card card-primary">
+        <div class="card-header">
+          <h3 class="card-title">Update Student Details</h3>
+        </div>
+          <div class="card-body">
+            <div class="form-group">
+              {{form.school|as_crispy_field}}
+              {{form.name|as_crispy_field}}
+              {{form.index_no|as_crispy_field}}
+              {{form.parent_name|as_crispy_field}}
+              {{form.form_no|as_crispy_field}}
+              {{form.app_id|as_crispy_field}}
+              {{form.app_date|as_crispy_field}}
+              {{form.passport|as_crispy_field}}
+              {{form.last_school|as_crispy_field}}
+              {{form.school_contact|as_crispy_field}}
+              {{form.birthdate|as_crispy_field}}
+              {{form.gender|as_crispy_field}}
+              {{form.residence|as_crispy_field}}
+              {{form.parent_contact|as_crispy_field}}
+              {{form.special_requirements|as_crispy_field}}
+              {{form.f21c_contact|as_crispy_field}}
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card card-success">
+        <div class="card-header">
+          <h3 class="card-title">Add Payment</h3>
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+              {{form.interview_date|as_crispy_field}}
+              {{form.payment_reference_no|as_crispy_field}}
+              {{form.paid_amount|as_crispy_field}}
+              {{form.transaction_id|as_crispy_field}}
+              {{form.payment_status|as_crispy_field}}
+            </div>
+            <div class="card-footer">
+              <button type="submit" class="btn btn-primary">Update Student Application</button>
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</form>
+
+{% endblock %}

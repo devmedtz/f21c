@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+{% load static %}
+{% load crispy_forms_tags %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- site style-->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+    <!-- Date Time Picker CSS -->
+     <link rel="stylesheet" href="{% static 'date-time-phone/jquery-ui.css' %}">
+    <link rel='stylesheet' href="{% static 'date-time-phone/jquery-ui-timepicker-addon.css' %}" />
+
+
+    <title>Application Form</title>
+</head>
+<body>
+    <form method="POST" enctype="multipart/form-data" id="studentForm" data-logos-url="{% url 'main:ajax_load_logos' %}">
+        {% csrf_token %}
+        <section class="main bgc">
+            <div class="row heading">
+                <div class="col-md-3 company-logo mb-2">
+                    <img class="company-logo" src="{% static 'images/f21_logo.jpg' %}" alt="">
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group text-center">
+                        {{form.school |as_crispy_field }}
+                    </div>
+                </div>
+                <div class="col-md-3 school-logo" id="id_logo">
+                </div>  
+            </div>
+        </section>
+
+        <section class="main">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="col-md-12 bgc box">
+                        <div class="form-inline">
+                            {{form.app_join |as_crispy_field }}
+                        </div>
+                        <div id="id_fee">
+
+                        </div>
+                        <div class="form-group">
+                            {{form.name |as_crispy_field }}
+                        </div>
+                        <div class="form-group">
+                            {{form.index_no |as_crispy_field }}
+                        </div>
+                        <div class="form-group">
+                            {{form.parent_name |as_crispy_field }}
+                        </div>
+                        <p class="small">NB: student names must appear as in your academic certificates</p>
+                    </div>
+                </div>
+                <div class="col-md-5 mt-2 custom-column">
+                    <div class="col-md-12 box bgc pb-5">
+                        <div class="form-group">
+                            <label for="">Form Number:</label>
+                            <input class="form-control" type="text" name="payment_ref" disabled style="background-image: url('../static/images/barcode_image.jpg');background-size:25%"border: 5px solid black;>
+                        </div>
+                        <div class="form-group">
+                            {{form.app_date |as_crispy_field }} 
+                        </div>
+                        <div class="form-group">
+                            <label for="">Interview Date</label>
+                            <input class="form-control" type="text" name="payment_ref" disabled style="background-image: url('../static/images/barcode_image.jpg');background-size:25%"border: 5px solid black;>
+                        </div>
+                        <p class="small">Note: Form Number and Interview date will be visible after making payment</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="main">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="col-md-12 box bgc">
+                        <div class="row">
+                            <div class="col-6">
+                                <img id="passport" class="mb-2" alt="" style="width: 130px; height: 130px;">
+                                <p id="status"></p>
+                                <div class="form-group">
+                                    {{form.passport |as_crispy_field }}
+                                </div>
+                            </div>
+                            <div class="col-6 mt-2">
+                                <div class="form-group">
+                                    {{form.last_school |as_crispy_field }}
+                                </div>
+                                <div class="form-group">
+                                    {{form.school_contact |as_crispy_field }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5 mt-2">
+                    <div class="col-md-12 box bgc" style="padding-bottom: 60px;">
+                        <div class="form-group mt-3">
+                            {{form.birthdate |as_crispy_field }}  
+                        </div>
+                        <div class="form-group">
+                            {{form.gender |as_crispy_field }}  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="main">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="col-md-12 box bgc">
+                        <div class="form-group">
+                            {{ form.residence | as_crispy_field }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.parent_contact | as_crispy_field }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5 mt-1">
+                    <div class="col-md-12 box bgc">
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">App.Fee Payment Ref No:</label>
+                            <input class="form-control" type="text" name="payment_ref" disabled style="background-image: url('../static/images/barcode_image.jpg');background-size:25%"border: 5px solid black;>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Applicant ID:</label>
+                            <input class="form-control" type="text" name="payment_ref" disabled style="background-image: url('../static/images/barcode_image.jpg');background-size:25%"border: 5px solid black;>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="main">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-md-12 box bgc">
+                        <div class="form-group">
+                            <div class="form-group">
+                                {{ form.special_requirements | as_crispy_field }}
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mt-1">
+                    <div class="col-md-12 box bgc">
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">F21C Contact Details</label>
+                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="+255 758 000 090" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="main">
+            <div class="col-12 bgc text-center make-payment">
+                <p class="p-3" style="">Make your application fee payment via lipa kwa Mpesa:LIPA Namba [ 5967905 ] Fidelity (21) century | <a href="#">Need Help?</a></p>
+            </div>
+        </section>
+
+        <section class="main mb-4">
+            <button class="btn btn-lg btn-primary" type="submit">Submit</button>
+        </section>
+    </form>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <!--School select javascripts -->
+    <script>
+      $("#id_school").change(function () {
+        var url = $("#studentForm").attr("data-logos-url");  
+        var schoolId = $(this).val();
+  
+        $.ajax({                       
+          url: url,                    
+          data: {
+            'school': schoolId       
+          },
+          success: function (data) {
+            $("#id_logo").html(data);
+
+          }
+        });
+  
+      });
+      
+    </script>
+        <!--App fee display -->
+        <script>
+            $("#id_app_join").change(function () { 
+              var schoolId = $('#id_school').val();
+              var formID = $(this).val();
+
+              console.log(schoolId)
+              console.log(formID)
+        
+              $.ajax({                       
+                url: 'ajax/load-fee/',                    
+                data: {
+                  'school': schoolId,
+                  'form_id': formID,     
+                },
+                success: function (data) {
+                  $("#id_fee").html(data);
+      
+                }
+              });
+        
+            });
+            
+          </script>
+
+                  <!--lood forms automatic display -->
+        <script>
+            $("#id_school").change(function () { 
+              var schoolId = $('#id_school').val();
+
+              console.log(schoolId)
+        
+              $.ajax({                       
+                url: 'ajax/load-forms/',                    
+                data: {
+                  'school': schoolId    
+                },
+                success: function (data) {
+                  $("#id_app_join").html(data);
+      
+                }
+              });
+        
+            });
+            
+          </script>
+
+     <!-- Date Time Picker JS -->
+  <script src="{% static 'date-time-phone/jquery-ui.js' %}" ></script>
+  <script src="{% static 'date-time-phone/jquery-ui-timepicker-addon.js' %}"></script> 
+
+  <script>
+    $( function() {
+        // $( "#id_birth_date" ).datetimepicker({ dateFormat: 'yy-mm-dd', maxDate: 0, controlType: 'select'}).attr("autocomplete", "off") ;
+        // $( "#id_birth_date" ).timepicker({ dateFormat: 'yy-mm-dd', maxDate: 0, controlType: 'select'}).attr("autocomplete", "off") ;
+        $( "#id_app_date" ).datepicker({ dateFormat: 'yy-mm-dd' }).attr("autocomplete", "off") ;
+        $( "#id_birthdate" ).datepicker({ dateFormat: 'yy-mm-dd' }).attr("autocomplete", "off") ;
+    });
+  </script>
+  <!-- Date Time Picker JS -->
+
+  <!-- Phone Mask JS -->
+  <script src="{% static 'date-time-phone/jquery-input-mask-phone-number.min.js' %}"></script> 
+
+  <script>
+    //(xxx) xxx-xxxx format code
+    $(document).ready(function () {
+        $('#id').usPhoneFormat({
+            format: '(xxx) xxx-xxxx',
+        });   
+    });
+  </script>
+  <!-- Phone Mask JS -->
+
+<!--Passport upload javascript-->
+  <script>
+    const status = document.getElementById('status');
+    const output = document.getElementById('passport');
+    if (window.FileList && window.File && window.FileReader) {
+      document.getElementById('id_passport').addEventListener('change', event => {
+        output.src = '';
+        status.textContent = '';
+        const file = event.target.files[0];
+        if (!file.type) {
+          status.textContent = 'Error: The File.type property does not appear to be supported on this browser.';
+          return;
+        }
+        if (!file.type.match('image.*')) {
+          status.textContent = 'Error: The selected file does not appear to be an image.'
+          return;
+        }
+        const reader = new FileReader();
+        reader.addEventListener('load', event => {
+          output.src = event.target.result;
+        });
+        reader.readAsDataURL(file);
+      }); 
+    }
+  </script>
+
+
+    <!-- site javascripts-->
+    <!-- <script src="{% static 'js/jquery-3.4.1.slim.min.js' %}"></script> -->
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body>
+    <div class="container">
+        <img src="{{ school.logo.url }}" alt="">
+    </div>
+    <div class="container">
+        <div class="col-md-8 offset-3">
+            <form id="studentForm" method="POST" action="" enctype="multipart/form-data" data-logos-url="{% url 'main:ajax_load_logos' %}">
+            {% csrf_token %}
+
+            <div id="id_logo">
+
+            </div>
+
+            {{form.as_p}}
+            <button type="submit">Submit</button>
+            </form>
+
+
+            <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+            <script>
+              $("#id_school").change(function () {
+                var url = $("#studentForm").attr("data-logos-url");  
+                var schoolId = $(this).val(); 
+          
+                $.ajax({                       
+                  url: url,                    
+                  data: {
+                    'school': schoolId       
+                  },
+                  success: function (data) {
+                    $("#id_logo").html(data);
+        
+                  }
+                });
+          
+              });
+            </script>
+        </div>
+    </div>
+</body>
+</html>

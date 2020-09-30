@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/technolo/f21c/
+    - /bin/cp -R f21c $DEPLOYPATH

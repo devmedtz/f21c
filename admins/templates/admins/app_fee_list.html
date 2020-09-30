@@ -1,0 +1,71 @@
+{% extends 'admins/base.html' %}
+
+
+{% block content %}
+<div class="card">
+  <div class="card-header">
+    <a href="{% url 'admins:app-fee' %}" class="btn btn-outline-danger">
+      <i class="fas fa-plus-circle"></i>
+      Add Application Fee
+    </a>
+  </div>
+</div>
+<div class="card">
+
+
+  <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Application Fees</h3>
+
+            <div class="card-tools">
+              <div class="input-group input-group-sm" style="width: 150px;">
+                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                <div class="input-group-append">
+                  <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body table-responsive p-0">
+            <table class="table table-hover text-nowrap">
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>School Name</th>
+                  <th>School logo</th>
+                  <th>To join</th>
+                  <th>Application Fee</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for fee in fees %}
+                <tr>
+                  <td>{{forloop.counter}}</td>
+                  <td>{{fee.school.name}}</td>
+                  <td>
+                    <a class="btn btn-danger btn-sm" href="{{fee.school.logo.url}}" target="_blank">View</a>
+                  </td>
+                  <td>{{fee.form}}</td>
+                  <td>Tshs. {{fee.fee}}/=</td>
+                  <td>
+                      <a href="{% url 'admins:app-fee-edit' fee.pk %}"><i class="fas fa-edit" style="color:green; margin-right:10px;"></i></a>
+                      <a onclick="return confirm('Are you sure you want to delete this Application?')" href="{% url 'admins:app-fee-delete' fee.pk %}"><i class="fas fa-trash-alt" style="color: red;"></i></a>
+                  </td>
+              </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+      </div>
+    </div>
+</div>
+
+{% endblock %}

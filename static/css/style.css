@@ -1,0 +1,135 @@
+@font-face {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    src: url(../fonts/Cambria.ttf);
+  }
+body{
+    margin: 0 auto;
+    background: #fff;
+    font-size: 14px;
+    font-family: Cambria;
+}
+.bgc { 
+    background-color: cornflowerblue;
+}
+.main {
+	justify-content: center;
+	align-items: center;
+    margin-top: 10px;
+    border-radius: 20px;
+    margin-right: 15px;
+    margin-left: 15px; 
+
+}
+.main .box {
+    border-radius: 20px;
+    color: white;
+    padding: 20px;
+    font-size: 20px;
+}
+.main button{
+    display: block;
+    width: 100%;
+    border: none;
+    background-color: cornflowerblue;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+.main .form-control {
+    width: 100%;
+    font-size: 14px;
+    font-family: Cambria;
+    border-radius: 18px;
+    font-weight: 300;
+    line-height: 1.5;
+    color: #2472c0;
+    background-color: #fff;
+}
+.main a{
+    color:rgb(243, 243, 174);
+}
+@media screen and (min-width: 600px) and (max-width: 1024px) {
+	.main {
+		margin-right: 60px;
+        margin-left: 60px;
+    }
+    .heading .company-logo{
+        float: left;
+        
+    }
+    .heading .school-logo{
+        float: right;
+    
+    }
+    .main button{
+        display: block;
+        width: 20%;
+        border: none;
+        background-color: cornflowerblue;
+        padding: 14px 28px;
+        font-size: 16px;
+        cursor: pointer;
+        text-align: center;
+    }
+  }
+@media only screen and (min-width:1025px)  {
+	.main {
+		margin-right: 260px;
+        margin-left: 260px;
+    }
+    .heading .company-logo{
+        float: left;
+        
+    }
+    .heading .school-logo{
+        float: right;
+    
+    }
+    .main button{
+        display: block;
+        width: 20%;
+        border: none;
+        background-color: cornflowerblue;
+        padding: 14px 28px;
+        font-size: 16px;
+        cursor: pointer;
+        text-align: center;
+    }
+}
+.heading {
+    justify-content: center;
+	align-items: center;
+    padding: 20px;
+}
+.heading img{
+    border: solid cornflowerblue 0.5px;
+    height: 100px;
+    width: 100px;
+    border-radius: 5px;
+    
+}
+.heading .company-logo{
+	text-align: center;
+    
+}
+.heading .school-logo{
+	text-align: center;
+
+}
+.main label{
+    font-family: Cambria;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+}
+.main .make-payment{
+    border-radius: 25px;
+
+}
+.main .make-payment{
+    color:white;
+    font-family: Cambria;
+    font-weight: 600;
+    font-size: 14px;
+}
