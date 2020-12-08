@@ -97,7 +97,7 @@ class GeneratePdfViews(LoginRequiredMixin, View):
         
         students = Student.objects.get(id=id)
 
-data = {
+        data = {
             'application_date': students.created.date, 
             'school_name': students.school.name.upper(),
             'school_logo' : students.school.logo,
