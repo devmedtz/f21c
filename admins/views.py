@@ -97,12 +97,12 @@ class GeneratePdfViews(LoginRequiredMixin, View):
         
         students = Student.objects.get(id=id)
 
-        data = {
-            'date': students.created, 
-            'school_name': students.school.name,
+data = {
+            'application_date': students.created.date, 
+            'school_name': students.school.name.upper(),
             'school_logo' : students.school.logo,
             'app_join': students.app_join,
-            'student_name': students.name,
+            'student_name': students.name.upper(),
             'index_no':students.index_no,
             'parent_name':students.parent_name,
             'form_no':students.form_no,
@@ -111,7 +111,7 @@ class GeneratePdfViews(LoginRequiredMixin, View):
             'last_school':students.last_school,
             'school_contact':students.school_contact,
             'birthdate':students.birthdate,
-            'gender':students.gender,
+            'gender':students.gender.upper(),
             'residence':students.residence,
             'parent_contact':students.parent_contact,
             'payment_reference_no':students.payment_reference_no,
