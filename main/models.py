@@ -25,6 +25,9 @@ class ApplicationFee(models.Model):
     def __str__(self):
         return self.form
 
+    class Meta:
+        ordering = ('form',)
+
 
 class DefaultLogo(models.Model):
     logo = models.ImageField(upload_to='default_logos')
