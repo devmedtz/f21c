@@ -12,11 +12,11 @@ class School(models.Model):
 class ApplicationFee(models.Model):
     APP_JOIN = (
     ('', 'Please select'),
-    ('form one', 'Form one'),
-    ('form five', 'Form five'),
-    ('transfer form one', 'Transfer form one'),
-    ('transfer form three', 'Transfer form three'),
-    ('transfer form five', 'Transfer form five'),
+    ('Form one', 'Form one'),
+    ('Form five', 'Form five'),
+    ('Transfer form one', 'Transfer form one'),
+    ('Transfer form three', 'Transfer form three'),
+    ('Transfer form five', 'Transfer form five'),
     )
     school = models.ForeignKey(School, on_delete=models.CASCADE, verbose_name='Select the school')
     form = models.CharField(max_length=100, choices=APP_JOIN, verbose_name='Application to Join')
