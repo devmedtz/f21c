@@ -18,4 +18,5 @@ urlpatterns = [
     path('pdf/<int:id>/', views.GeneratePdfViews.as_view(), name='pdf'),
     path('delete/<int:pk>/', views.StudentDeleteView.as_view(), name='delete-student'),
     path('student/export/excel/', views.ExportStudentsCsv.as_view(), name='student-export-excel'),
+    path('week_ago_application/', views.week_ago_application, name='week_ago_application'),
 ]

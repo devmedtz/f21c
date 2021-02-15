@@ -29,6 +29,20 @@ class Dashboard(LoginRequiredMixin, TemplateView):
         return context
 
 
+def week_ago_application(request):
+    one_week_ago = datetime.today() - timedelta(days=7)
+
+    week_student = Student.objects.filter(created__gte=one_week_ago)
+
+    context = {
+        'week_student':week_student
+    }
+
+    template_name = 'admins/week_ago.html'
+
+    return render(request, template_name, context)
+
+
 class SchoolCreate(LoginRequiredMixin, CreateView):
     form_class = SchoolForm
     template_name = 'admins/school_add.html'
